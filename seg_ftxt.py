@@ -5,7 +5,7 @@ import jieba
 import os
 import sys
 
-seg_dir=sys.path[0]
+seg_dir = sys.path[0]
 # seg_dir = '/data1/qspace/travischen/segmentation/seg_jieba'
 jieba.load_userdict(seg_dir + '/newdict.dat')
 
