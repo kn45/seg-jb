@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding=utf8 -*-
+# https://github.com/kn45/SegJieba
 
 import jieba
 import os
