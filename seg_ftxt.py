@@ -6,7 +6,10 @@ import os
 import sys
 
 seg_dir = sys.path[0]
-# seg_dir = '/data1/qspace/travischen/segmentation/seg_jieba'
+# seg auto initialize here due to load user_dict
+# manually initialize if needed when there's no user_dict
+# jieba.set_dictionary('data/dict.txt.big')  # set main dict(optional)
+# jieba.initialize()
 jieba.load_userdict(seg_dir + '/newdict.dat')
 
 stop_words = {}
