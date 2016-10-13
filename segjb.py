@@ -6,7 +6,7 @@ class SegJb(object):
     def __init__(self):
         self.stopwords = {}
         self.puncs = {}
-        self.min_word_cnt = 0
+        self.min_word_len = 1
         self.delim = ' '
         self.keep_stopwords = True
         self.keep_puncs = True
@@ -22,10 +22,10 @@ class SegJb(object):
                 self.puncs = {x.rstrip('\n').decode('utf8'): ''
                               for x in f.readlines()}
 
-    def set_param(self, min_word_cnt=None, delim=None, keep_stopwords=None,
+    def set_param(self, min_word_len=None, delim=None, keep_stopwords=None,
                   keep_puncs=None):
-        if isinstance(min_word_cnt, int):
-            self.min_word_cnt = min_word_cnt
+        if isinstance(min_word_len, int):
+            self.min_word_len = min_word_len
         if isinstance(delim, str):
             self.delim = delim
         if isinstance(keep_stopwords, bool):
@@ -40,6 +40,7 @@ class SegJb(object):
 
     def cut2list(self, corp):
         segs = jieba.cut(corp)
+        segs = [x for x in segs if len(x) >= self.min_word_len]
         if not self.keep_stopwords:
             segs = [x for x in segs if x not in self.stopwords]
         if not self.keep_puncs:
@@ -48,6 +49,7 @@ class SegJb(object):
 
     def cut2str(self, corp):
         segs = jieba.cut(corp)
+        segs = [x for x in segs if len(x) >= self.min_word_len]
         if not self.keep_stopwords:
             segs = [x for x in segs if x not in self.stopwords]
         if not self.keep_puncs:
