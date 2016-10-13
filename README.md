@@ -1,17 +1,12 @@
-# SegJieba
-## Jieba segmentation example for self-use.
+# SegJb
+Segmentation wrapper with [Jieba](https://github.com/fxsjy/jieba) for self-use.
 
-- Late initialization
-- Set main dict
-
-
-- Load user dict
-
-- Stop-words dict
-
-- Punctuation dict
+- Late initialization.
+- Initialization with customized main dict and user defined dict.
+- Build-in stop-words dict, punctuations dict.
+- Output control of stopwords, punctuations, minimum word length, output delimiters etc..
 
 
 ## To do:
 
--  Make a wrapper to manipulate stop-words, punctuation, min_words_lenth, output_delim etc.
+-  Add more useful methods.

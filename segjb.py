@@ -11,8 +11,13 @@ class SegJb(object):
         self.keep_stopwords = True
         self.keep_puncs = True
 
-    def init(self, stopwords_file=None, puncs_file=None):
+    def init(self, stopwords_file=None, puncs_file=None, main_dict=None,
+             user_dict=None):
+        if isinstance(main_dict, str):
+            jieba.set_dictionary(main_dict)
         jieba.initialize()
+        if isinstance(user_dict, str):
+            jieba.load_userdict(user_dict)
         if stopwords_file is not None:
             with open(stopwords_file) as f:
                 self.stopwords = {x.rstrip('\n').decode('utf8'): ''
@@ -57,7 +62,8 @@ class SegJb(object):
 
 def test():
     segutil = SegJb()
-    segutil.init('./stopwords.dat', './punctuations.dat')
+    segutil.init(stopwords_file='stopwords.dat', puncs_file='punctuations.dat',
+                 user_dict='newdict.dat')
     segutil.set_param(delim=' ', keep_stopwords=False, keep_puncs=False)
     # segutil.debug()
     print segutil.cut2list('测试一下,效果怎么样,万一')
