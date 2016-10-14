@@ -7,8 +7,9 @@ class SegJb(object):
     def __init__(self):
         self.stopwords = {}
         self.puncs = {}
-        self.min_word_len = 1
         self.delim = ' '
+        self.min_word_len = 1
+        self.ngram = 1
         self.keep_stopwords = True
         self.keep_puncs = True
 
@@ -28,12 +29,14 @@ class SegJb(object):
                 self.puncs = {x.rstrip('\n').decode('utf8'): ''
                               for x in f.readlines()}
 
-    def set_param(self, min_word_len=None, delim=None, keep_stopwords=None,
-                  keep_puncs=None):
-        if isinstance(min_word_len, int):
-            self.min_word_len = min_word_len
+    def set_param(self, delim=None, min_word_len=None, ngram=None,
+                  keep_stopwords=None, keep_puncs=None):
         if isinstance(delim, str):
             self.delim = delim
+        if isinstance(min_word_len, int):
+            self.min_word_len = min_word_len
+        if isinstance(ngram, int):
+            self.ngram = ngram
         if isinstance(keep_stopwords, bool):
             self.keep_stopwords = keep_stopwords
         if isinstance(keep_puncs, bool):
@@ -51,6 +54,14 @@ class SegJb(object):
             segs = [x for x in segs if x not in self.stopwords]
         if not self.keep_puncs:
             segs = [x for x in segs if x not in self.puncs]
+        ngram_segs = []
+        for i, seg in enumerate(segs):
+            nseg = seg
+            for j in xrange(i, min(i+self.ngram-1, len(segs)-1)):
+                # j+1 is the offset
+                nseg += segs[j+1]
+                ngram_segs.append(nseg)
+        segs += ngram_segs
         return segs
 
     def cut2str(self, corp):
@@ -60,6 +71,14 @@ class SegJb(object):
             segs = [x for x in segs if x not in self.stopwords]
         if not self.keep_puncs:
             segs = [x for x in segs if x not in self.puncs]
+        ngram_segs = []
+        for i, seg in enumerate(segs):
+            nseg = seg
+            for j in xrange(i, min(i+self.ngram-1, len(segs)-1)):
+                # j+1 is the offset
+                nseg += segs[j+1]
+                ngram_segs.append(nseg)
+        segs += ngram_segs
         return self.delim.join(segs)
 
 

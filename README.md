@@ -6,6 +6,7 @@ https://github.com/kn45/SegJb
 - Initialization with customized main dict and user defined dict.
 - Build-in stop-words dict, punctuations dict.
 - Output control of stopwords, punctuations, minimum word length, output delimiters etc..
+- Support ngram.
 
 
 ## To do:
