@@ -18,14 +18,20 @@ https://github.com/kn45/SegJb
 - main_dict: initialize with another main dictionary, default one is Jieba built-in dictionary.  
 - user_dict: load user customized dictionary.  
 
+  ​
+
 **set_param(delim=None, min_word_len=None, ngram=None, keep_stopwords=None, keep_puncs=None)**  
 --Set one or more parameters of the segmentation utility instance. Refer to parameter description.  
 - return: void  
+
+  ​
 
 **cut2list(corp)**  
 --Cut a sentence to list due to configuration.  
 - return: list<unicode word>  
 - corp: unicode or utf8 sentence.  
+
+  ​
 
 **cut2str(corp)**  
 --Cut a sentence to a delimeter(can be set by set_param) joined string.  
