@@ -10,60 +10,44 @@ https://github.com/kn45/SegJb
 
 ## API
 
-**init(stopwords_file=None, puncs_file=None, main_dict=None, user_dict=None)**
-
---Initialize the segmentation utility instance.
-
+**init(stopwords_file=None, puncs_file=None, main_dict=None, user_dict=None)**  
+--Initialize the segmentation utility instance.  
 - return: void.  
 - stopwords_file: stopword dictionary.  
 - puncs_file: punctuation dictionary.  
 - main_dict: initialize with another main dictionary, default one is Jieba built-in dictionary.  
 - user_dict: load user customized dictionary.  
 
-**set_param(delim=None, min_word_len=None, ngram=None, keep_stopwords=None, keep_puncs=None)**
+**set_param(delim=None, min_word_len=None, ngram=None, keep_stopwords=None, keep_puncs=None)**  
+--Set one or more parameters of the segmentation utility instance. Refer to parameter description.  
+- return: void  
 
---Set one or more parameters of the segmentation utility instance. Refer to parameter description.
-
-- return: void
-
-
-**cut2list(corp)**
-
---Cut a sentence to list due to configuration.
-
+**cut2list(corp)**  
+--Cut a sentence to list due to configuration.  
 - return: list<unicode word>  
 - corp: unicode or utf8 sentence.  
 
-
-**cut2str(corp)**
-
---Cut a sentence to a delimeter(can be set by set_param) joined string.
-
+**cut2str(corp)**  
+--Cut a sentence to a delimeter(can be set by set_param) joined string.  
 - return: unicode string.  
 - corp: unicode or utf8 sentence.  
 
 ## Parameters
 
-- delim [default=' ']
+- delim [default=' ']  
+  the delimeter used to constuct the segmentation result in string.  
 
-  the delimeter used to constuct the segmentation result in string.
+- min_word_len [default=1]  
+  word with length less than min_word_len will not in segmentation result.  
 
-- min_word_len [default=1]
+- ngram [default=1]  
+  result can be ngram.  
 
-  word with length less than min_word_len will not in segmentation result.
+- keep_stopwords [default=True]  
+  whether to keep stopwords in result.  
 
-- ngram [default=1]
-
-  result can be ngram.
-
-- keep_stopwords [default=True]
-
-  whether to keep stopwords in result.
-
-- keep_puncs [default=True]
-
-  whether to keep stopwords in result.
-
+- keep_puncs [default=True]  
+  whether to keep stopwords in result.  
 
 
 ## To do:
