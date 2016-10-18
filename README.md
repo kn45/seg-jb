@@ -11,7 +11,7 @@ https://github.com/kn45/SegJb
 ## API
 
 **init(stopwords_file=None, puncs_file=None, main_dict=None, user_dict=None)**  
---Initialize the segmentation utility instance.  
+-- Initialize the segmentation utility instance.  
 - return: void.  
 - stopwords_file: stopword dictionary.  
 - puncs_file: punctuation dictionary.  
@@ -20,24 +20,20 @@ https://github.com/kn45/SegJb
   ​
 
 **set_param(delim=None, min_word_len=None, ngram=None, keep_stopwords=None, keep_puncs=None)**  
-  --Set one or more parameters of the segmentation utility instance. Refer to parameter description.  
+-- Set one or more parameters of the segmentation utility instance. Refer to parameter description.  
 - return: void  
   ​
 
 **cut2list(corp)**  
-  --Cut a sentence to list due to configuration.  
+-- Cut a sentence to list due to configuration.  
 - return: list<unicode word>  
-
 - corp: unicode or utf8 sentence.  
-
   ​
 
 **cut2str(corp)**  
---Cut a sentence to a delimeter(can be set by set_param) joined string.  
+-- Cut a sentence to a delimeter(can be set by set_param) joined string.  
 - return: unicode string.  
-
 - corp: unicode or utf8 sentence.  
-
   ​
 
 ## Parameters
