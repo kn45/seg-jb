@@ -2,10 +2,8 @@
 Segmentation wrapper of [Jieba](https://github.com/fxsjy/jieba) for self-use.  
 https://github.com/kn45/SegJb
 
-- Late initialization.
-
-- Initialization with customized main dict and user defined dict.
-
+- Late initialization.  
+- Initialization with customized main dict and user defined dict.  
 - Build-in stop-words dict, punctuations dict.
 
 - Output control of stopwords, punctuations, minimum word length, output delimiters etc..
@@ -20,8 +18,7 @@ https://github.com/kn45/SegJb
 
 - return: void.
 
-- stopwords_file: stopword dictionary.
-
+- stopwords_file: stopword dictionary.  
 - puncs_file: punctuation dictionary.
 
 - main_dict: initialize with another main dictionary, default one is Jieba built-in dictionary.
