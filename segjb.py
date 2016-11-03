@@ -1,6 +1,7 @@
 # -*- coding=utf-8 -*-
 # https://github.com/kn45/SegJb
 import jieba
+import logging
 
 
 class SegJb(object):
@@ -14,9 +15,12 @@ class SegJb(object):
         self.keep_puncs = True
 
     def init(self, stopwords_file=None, puncs_file=None, main_dict=None,
-             user_dict=None):
+             user_dict=None, silent=None):
         if isinstance(main_dict, str):
             jieba.set_dictionary(main_dict)
+            if isinstance(silent, bool):
+                if silent:
+                    jieba.setLogLevel(logging.ERROR)
         jieba.initialize()
         if isinstance(user_dict, str):
             jieba.load_userdict(user_dict)
