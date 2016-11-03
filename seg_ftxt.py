@@ -10,7 +10,8 @@ seg_dir = sys.path[0]
 segutil = segjb.SegJb()
 segutil.init(stopwords_file=seg_dir+'/stopwords.dat',
              puncs_file=seg_dir+'/punctuations.dat',
-             user_dict=seg_dir+'/newdict.dat')
+             user_dict=seg_dir+'/newdict.dat',
+             adsilent=True)
 segutil.set_param(delim=' ', ngram=2, keep_stopwords=True, keep_puncs=False)
 
 for line in sys.stdin:
