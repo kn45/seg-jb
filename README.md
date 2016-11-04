@@ -10,13 +10,14 @@ https://github.com/kn45/SegJb
 
 ## API
 
-**init(stopwords_file=None, puncs_file=None, main_dict=None, user_dict=None)**  
+**init(stopwords_file=None, puncs_file=None, main_dict=None, user_dict=None, silent=None)**  
 -- Initialize the segmentation utility instance.  
 - return: void.  
 - stopwords_file: stopword dictionary.  
 - puncs_file: punctuation dictionary.  
 - main_dict: initialize with another main dictionary, default one is Jieba built-in dictionary.  
 - user_dict: load user customized dictionary.  
+- silent: whether print initializing log.  
   ​
 
 **set_param(delim=None, min_word_len=None, ngram=None, keep_stopwords=None, keep_puncs=None)**  
