@@ -55,6 +55,12 @@ https://github.com/kn45/SegJb
   whether to keep stopwords in result.  
 
 
-## To do:
+## Example:
 
--  Add more useful methods.
+```python
+import segjb
+hdl_seg = segjb.Segjb()
+hdl_seg.init(stopwords_file='stopwords.dat', puncs_file='punctuations.dat', user_dict='newdict.dat')
+hdl_seg.set_param(delim=' ', ngram=2, keep_stopwords=True, keep_puncs=False)
+print hdl_seg.cut2str('这是一场精彩的比赛')
+```
