@@ -1,0 +1,12 @@
+*.pyc
+*.swp
+*.DS_Store
+
+.pypirc
+*.egg
+*.eggs
+*.egg-info
+dist
+build
+sdist
+

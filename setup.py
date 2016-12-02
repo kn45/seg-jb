@@ -13,7 +13,7 @@ setup(
     classifiers=[
         'Natural Language :: Chinese (Simplified)',
         'Natural Language :: Chinese (Traditional)',
-        'Programming Language :: Python :: 2.7']
+        'Programming Language :: Python :: 2.7'],
     packages=['segjb'],
     package_data={'segjb': ['*.*']},
     keywords='nlp, tokenizing, segmentation',
