@@ -1,23 +1,23 @@
 # SegJb
-Segmentation wrapper of [Jieba](https://github.com/fxsjy/jieba) for self-use.  
+Segmentation wrapper of [Jieba](https://github.com/fxsjy/jieba) Chinese segmentation.  
 https://github.com/kn45/SegJb
 
-- Late initialization.  
-- Initialization with customized main dict and user defined dict.  
+- Lazy initialization.  
+- Initialization with user defined dict.  
 - Build-in stop-words dict, punctuations dict.  
 - Output control of stopwords, punctuations, minimum word length, output delimiters etc..  
 - Support ngram.  
 
 ## API
 
-**init(stopwords_file=None, puncs_file=None, main_dict=None, user_dict=None, silent=None)**  
+**init(stopwords_file=None, puncs_file=None, user_dict=None, silent=None, main_dict=None)**  
 -- Initialize the segmentation utility instance.  
 - return: void.  
-- stopwords_file: stopword dictionary.  
-- puncs_file: punctuation dictionary.  
+- stopwords_file: stopword dictionary. Use SegJb.DEFAULT_STPW for built-in.  
+- ​
+- user_dict: load user customized dictionary. Use SegJb.DEFAULT_DICT for built-in.  
+- ​
 - main_dict: initialize with another main dictionary, default one is Jieba built-in dictionary.  
-- user_dict: load user customized dictionary.  
-- silent: whether print initializing log.  
   ​
 
 **set_param(delim=None, min_word_len=None, ngram=None, keep_stopwords=None, keep_puncs=None)**  
@@ -58,9 +58,11 @@ https://github.com/kn45/SegJb
 ## Example:
 
 ```python
-import segjb
-hdl_seg = segjb.Segjb()
-hdl_seg.init(stopwords_file='stopwords.dat', puncs_file='punctuations.dat', user_dict='newdict.dat')
+from segjb import SegJb
+hdl_seg = Segjb()
+hdl_seg.init(stopwords_file=SegJb.DEFAULT_STPW,
+             puncs_file=SegJb.DEFAULT_PUNC,
+             user_dict=SegJb.DEFAULT_DICT)
 hdl_seg.set_param(delim=' ', ngram=2, keep_stopwords=True, keep_puncs=False)
 print hdl_seg.cut2str('这是一场精彩的比赛')
 ```

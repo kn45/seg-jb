@@ -3,14 +3,17 @@
 # https://github.com/kn45/SegJb
 
 import os
-import segjb
 import sys
+try:
+    sys.path.append('../')
+except:
+    pass
+from segjb import SegJb
 
-seg_dir = sys.path[0]
-segutil = segjb.SegJb()
-segutil.init(stopwords_file=seg_dir+'/stopwords.dat',
-             puncs_file=seg_dir+'/punctuations.dat',
-             user_dict=seg_dir+'/newdict.dat',
+segutil = SegJb()
+segutil.init(stopwords_file=SegJb.DEFAULT_STPW,
+             puncs_file=SegJb.DEFAULT_PUNC,
+             user_dict=SegJb.DEFAULT_DICT,
              silent=True)
 segutil.set_param(delim=' ', ngram=2, keep_stopwords=True, keep_puncs=False)
 

@@ -8,9 +8,10 @@ import os
 class SegJb(object):
     """Wrapper for Jieba
     """
-    DEFAULT_STPW = os.path.dirname(__file__) + '/stopwords.dat'
-    DEFAULT_PUNC = os.path.dirname(__file__) + '/punctuations.dat'
-    DEFAULT_DICT = os.path.dirname(__file__) + '/newdict.dat'
+    MODULE_REAL_DIR = os.path.dirname(os.path.realpath(__file__))
+    DEFAULT_STPW = MODULE_REAL_DIR + '/stopwords.dat'
+    DEFAULT_PUNC = MODULE_REAL_DIR + '/punctuations.dat'
+    DEFAULT_DICT = MODULE_REAL_DIR + '/newdict.dat'
 
     def __init__(self):
         self.stopwords = {}
@@ -21,13 +22,13 @@ class SegJb(object):
         self.keep_stopwords = True
         self.keep_puncs = True
 
-    def init(self, stopwords_file=None, puncs_file=None, main_dict=None,
-             user_dict=None, silent=None):
+    def init(self, stopwords_file=None, puncs_file=None, user_dict=None,
+             silent=None, main_dict=None):
         if isinstance(main_dict, str):
             jieba.set_dictionary(main_dict)
-            if isinstance(silent, bool):
-                if silent:
-                    jieba.setLogLevel(logging.ERROR)
+        if isinstance(silent, bool):
+            if silent:
+                jieba.setLogLevel(logging.ERROR)
         jieba.initialize()
         if isinstance(user_dict, str):
             jieba.load_userdict(user_dict)
@@ -95,7 +96,9 @@ class SegJb(object):
 
 def test():
     segutil = SegJb()
+    print SegJb.DEFAULT_STPW
     print SegJb.DEFAULT_PUNC
+    print SegJb.DEFAULT_DICT
     segutil.init(stopwords_file=SegJb.DEFAULT_STPW,
                  puncs_file=SegJb.DEFAULT_PUNC,
                  user_dict=SegJb.DEFAULT_DICT)
