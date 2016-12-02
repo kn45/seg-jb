@@ -7,7 +7,7 @@ SegJb
 
 -  | Lazy initialization.
 
--  | Initialization with user defined dict.
+-  | Initialization with customized main dict and user defined dict.
 
 -  | Build-in stop-words dict, punctuations dict.
 
@@ -28,12 +28,13 @@ API
 -  | stopwords\_file: stopword dictionary. Use SegJb.DEFAULT\_STPW for
      built-in.
 
--  
+-  | puncs\_file: punctuation dictionary. Use SegJb.DEFAULT\_PUNC for
+     built-in.
 
 -  | user\_dict: load user customized dictionary. Use
      SegJb.DEFAULT\_DICT for built-in.
 
--  
+-  | silent: whether print initializing log.
 
 -  | main\_dict: initialize with another main dictionary, default one is
      Jieba built-in dictionary.

@@ -3,7 +3,7 @@ Segmentation wrapper of [Jieba](https://github.com/fxsjy/jieba) Chinese segmenta
 https://github.com/kn45/SegJb
 
 - Lazy initialization.  
-- Initialization with user defined dict.  
+- Initialization with customized main dict and user defined dict.  
 - Build-in stop-words dict, punctuations dict.  
 - Output control of stopwords, punctuations, minimum word length, output delimiters etc..  
 - Support ngram.  
@@ -14,9 +14,9 @@ https://github.com/kn45/SegJb
 -- Initialize the segmentation utility instance.  
 - return: void.  
 - stopwords_file: stopword dictionary. Use SegJb.DEFAULT_STPW for built-in.  
-- ​
+- puncs_file: punctuation dictionary. Use SegJb.DEFAULT_PUNC for built-in.  
 - user_dict: load user customized dictionary. Use SegJb.DEFAULT_DICT for built-in.  
-- ​
+- silent: whether print initializing log.  
 - main_dict: initialize with another main dictionary, default one is Jieba built-in dictionary.  
   ​
 
