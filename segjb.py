@@ -2,9 +2,16 @@
 # https://github.com/kn45/SegJb
 import jieba
 import logging
+import os
 
 
 class SegJb(object):
+    """Wrapper for Jieba
+    """
+    DEFAULT_STPW = os.path.dirname(__file__) + '/stopwords.dat'
+    DEFAULT_PUNC = os.path.dirname(__file__) + '/punctuations.dat'
+    DEFAULT_DICT = os.path.dirname(__file__) + '/newdict.dat'
+
     def __init__(self):
         self.stopwords = {}
         self.puncs = {}
@@ -88,8 +95,10 @@ class SegJb(object):
 
 def test():
     segutil = SegJb()
-    segutil.init(stopwords_file='stopwords.dat', puncs_file='punctuations.dat',
-                 user_dict='newdict.dat')
+    print SegJb.DEFAULT_PUNC
+    segutil.init(stopwords_file=SegJb.DEFAULT_STPW,
+                 puncs_file=SegJb.DEFAULT_PUNC,
+                 user_dict=SegJb.DEFAULT_DICT)
     segutil.set_param(delim=' ', keep_stopwords=False, keep_puncs=False)
     # segutil.debug()
     print segutil.cut2list('测试一下,效果怎么样,万一')
