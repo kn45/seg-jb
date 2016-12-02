@@ -1,5 +1,16 @@
 # -*- coding=utf-8 -*-
-# https://github.com/kn45/SegJb
+"""A wrapper for jieba segmentation
+For full documentation, refer to https://github.com/kn45/SegJb/README.md
+Quick Start:
+    from segjb import SegJb
+    segutil = SegJb()
+    segutil.init(stopwords_file=SegJb.DEFAULT_STPW,
+                 puncs_file=SegJb.DEFAULT_PUNC,
+                 user_dict=SegJb.DEFAULT_DICT)
+    segutil.set_param(delim=' ', keep_stopwords=False, keep_puncs=False)
+    print segutil.cut2list('测试一下,效果怎么样,万一')
+    print segutil.cut2str('测试一下,效果怎么样,万一')
+"""
 import jieba
 import logging
 import os

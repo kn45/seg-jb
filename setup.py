@@ -3,8 +3,8 @@ from setuptools import setup
 
 setup(
     name='segjb',
-    version='0.1',
-    desciption='A wrapper for jieba segmentation',
+    version='0.1.1',
+    description='A wrapper for jieba segmentation',
     long_description=open('README.rst').read(),
     author='Travis Chen',
     author_email='teckiechen@gmail.com',
