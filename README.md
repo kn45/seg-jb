@@ -12,11 +12,11 @@ https://github.com/kn45/SegJb
 
 **init(stopwords_file, puncs_file, user_dict, silent, main_dict)**  
 -- Initialize the segmentation utility instance.  
-- return        : void.  
+- return: void.  
 - stopwords_file: stopword dictionary. Use "" to disable. [SegJb.DEFAULT_STPW]  
-- puncs_file    : punctuation dictionary. Use "" to disable. [SegJb.DEFAULT_PUNC]  
-- user_dict     : load user customized dictionary. Use "" to disable. [SegJb.DEFAULT_DICT]  
-- silent        : whether print initializing log. [True]  
+- puncs_file: punctuation dictionary. Use "" to disable. [SegJb.DEFAULT_PUNC]  
+- user_dict: load user customized dictionary. Use "" to disable. [SegJb.DEFAULT_DICT]  
+- silent: whether print initializing log. [True]  
   ​
 
 **set_param(delim, min_word_len, ngram, keep_stopwords, keep_puncs)**  
@@ -27,13 +27,13 @@ https://github.com/kn45/SegJb
 **cut2list(corp)**  
 -- Cut a sentence to list due to configuration.  
 - return: list<unicode word>  
-- corp  : unicode or utf8 sentence.  
+- corp: unicode or utf8 sentence.  
   ​
 
 **cut2str(corp)**  
 -- Cut a sentence to a delimeter(can be set by set_param) joined string.  
 - return: unicode string.  
-- corp  : unicode or utf8 sentence.  
+- corp: unicode or utf8 sentence.  
   ​
 
 ## Parameters
