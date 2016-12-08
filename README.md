@@ -59,9 +59,7 @@ https://github.com/kn45/SegJb
 ```python
 from segjb import SegJb
 hdl_seg = Segjb()
-hdl_seg.init(stopwords_file=SegJb.DEFAULT_STPW,
-             puncs_file=SegJb.DEFAULT_PUNC,
-             user_dict=SegJb.DEFAULT_DICT)
+hdl_seg.init()
 hdl_seg.set_param(delim=' ', ngram=2, keep_stopwords=True, keep_puncs=False)
 print hdl_seg.cut2str('这是一场精彩的比赛')
 ```
