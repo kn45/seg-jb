@@ -4,9 +4,7 @@ For full documentation, refer to https://github.com/kn45/SegJb/README.md
 Quick Start:
     from segjb import SegJb
     segutil = SegJb()
-    segutil.init(stopwords_file=SegJb.DEFAULT_STPW,
-                 puncs_file=SegJb.DEFAULT_PUNC,
-                 user_dict=SegJb.DEFAULT_DICT)
+    segutil.init()
     segutil.set_param(delim=' ', keep_stopwords=False, keep_puncs=False)
     print segutil.cut2list('测试一下,效果怎么样,万一')
     print segutil.cut2str('测试一下,效果怎么样,万一')
@@ -34,20 +32,28 @@ class SegJb(object):
         self.keep_puncs = True
 
     def init(self, stopwords_file=None, puncs_file=None, user_dict=None,
-             silent=None, main_dict=None):
-        if isinstance(main_dict, str):
-            jieba.set_dictionary(main_dict)
-        if isinstance(silent, bool):
-            if silent:
-                jieba.setLogLevel(logging.ERROR)
+             silent=None):
+        # set default value, cat wrong value to default
+        if not isinstance(stopwords_file, str):
+            stopwords_file = SegJb.DEFAULT_STPW
+        if not isinstance(puncs_file, str):
+            puncs_file = SegJb.DEFAULT_PUNC
+        if not isinstance(user_dict, str):
+            user_dict = SegJb.DEFAULT_DICT
+        if not isinstance(silent, bool):
+            silent = True
+
+        # init due to settings
+        if silent:
+            jieba.setLogLevel(logging.ERROR)
         jieba.initialize()
-        if isinstance(user_dict, str):
+        if user_dict != '':
             jieba.load_userdict(user_dict)
-        if stopwords_file is not None:
+        if stopwords_file != '':
             with open(stopwords_file) as f:
                 self.stopwords = {x.rstrip('\n').decode('utf8'): ''
                                   for x in f.readlines()}
-        if puncs_file is not None:
+        if puncs_file != '':
             with open(puncs_file) as f:
                 self.puncs = {x.rstrip('\n').decode('utf8'): ''
                               for x in f.readlines()}
@@ -110,9 +116,7 @@ def test():
     print SegJb.DEFAULT_STPW
     print SegJb.DEFAULT_PUNC
     print SegJb.DEFAULT_DICT
-    segutil.init(stopwords_file=SegJb.DEFAULT_STPW,
-                 puncs_file=SegJb.DEFAULT_PUNC,
-                 user_dict=SegJb.DEFAULT_DICT)
+    segutil.init()
     segutil.set_param(delim=' ', keep_stopwords=False, keep_puncs=False)
     # segutil.debug()
     print segutil.cut2list('测试一下,效果怎么样,万一')
