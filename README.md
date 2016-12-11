@@ -10,13 +10,14 @@ https://github.com/kn45/SegJb
 
 ## API
 
-**init(stopwords_file, puncs_file, user_dict, silent, main_dict)**  
+**init(stopwords_file, puncs_file, user_dict, silent, main_dict, thread)**  
 -- Initialize the segmentation utility instance.  
 - return: void.  
 - stopwords_file: stopword dictionary. Use "" to disable. [SegJb.DEFAULT_STPW]  
 - puncs_file: punctuation dictionary. Use "" to disable. [SegJb.DEFAULT_PUNC]  
 - user_dict: load user customized dictionary. Use "" to disable. [SegJb.DEFAULT_DICT]  
 - silent: whether print initializing log. [True]  
+- thread: number of part to separate the corpus for parallel. [1]
   ​
 
 **set_param(delim, min_word_len, ngram, keep_stopwords, keep_puncs)**  

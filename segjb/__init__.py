@@ -32,7 +32,7 @@ class SegJb(object):
         self.keep_puncs = True
 
     def init(self, stopwords_file=None, puncs_file=None, user_dict=None,
-             silent=None):
+             silent=None, thread=None):
         # set default value, cat wrong value to default
         if not isinstance(stopwords_file, str):
             stopwords_file = SegJb.DEFAULT_STPW
@@ -42,11 +42,15 @@ class SegJb(object):
             user_dict = SegJb.DEFAULT_DICT
         if not isinstance(silent, bool):
             silent = True
+        if not isinstance(thread, int):
+            thread = 1
 
         # init due to settings
         if silent:
             jieba.setLogLevel(logging.ERROR)
         jieba.initialize()
+        if thread > 1:
+            jieba.enable_parallel(thread)
         if user_dict != '':
             jieba.load_userdict(user_dict)
         if stopwords_file != '':

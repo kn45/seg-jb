@@ -19,7 +19,8 @@ SegJb
 API
 ---
 
-| **init(stopwords\_file, puncs\_file, user\_dict, silent, main\_dict)**
+| **init(stopwords\_file, puncs\_file, user\_dict, silent, main\_dict,
+  thread)**
 |  -- Initialize the segmentation utility instance.
 
 -  | return: void.
@@ -34,7 +35,8 @@ API
      [SegJb.DEFAULT\_DICT]
 
 -  | silent: whether print initializing log. [True]
-   | 
+
+-  thread: number of part to separate the corpus for parallel. [1]
 
 | **set\_param(delim, min\_word\_len, ngram, keep\_stopwords,
   keep\_puncs)**
