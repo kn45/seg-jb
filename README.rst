@@ -1,9 +1,10 @@
 SegJb
 =====
 
-Segmentation wrapper of `Jieba <https://github.com/fxsjy/jieba>`__
-Chinese segmentation. https://github.com/kn45/SegJb
-``pip install segjb`` (dependency: jieba)
+| Segmentation wrapper of `Jieba <https://github.com/fxsjy/jieba>`__
+  Chinese segmentation.
+|  https://github.com/kn45/SegJb
+|  ``pip install segjb`` (dependency: jieba) 
 
 -  | Lazy initialization.
 
