@@ -6,9 +6,10 @@ Quick Start:
     segutil = SegJb()
     segutil.init()
     segutil.set_param(delim=' ', keep_stopwords=False, keep_puncs=False)
-    print segutil.cut2list('测试一下,效果怎么样,万一')
-    print segutil.cut2str('测试一下,效果怎么样,万一')
+    print(segutil.cut2list('测试一下,效果怎么样,万一'))
+    print(segutil.cut2str('测试一下,效果怎么样,万一'))
 """
+from __future__ import print_function
 import jieba
 import logging
 import os
@@ -54,13 +55,13 @@ class SegJb(object):
         if user_dict != '':
             jieba.load_userdict(user_dict)
         if stopwords_file != '':
-            with open(stopwords_file) as f:
-                self.stopwords = {x.rstrip('\n').decode('utf8'): ''
-                                  for x in f.readlines()}
+            with open(stopwords_file, encoding='utf-8') as f:
+                self.stopwords = {x: ''
+                                  for x in f.read().split('\n')}
         if puncs_file != '':
-            with open(puncs_file) as f:
-                self.puncs = {x.rstrip('\n').decode('utf8'): ''
-                              for x in f.readlines()}
+            with open(puncs_file, encoding='utf-8') as f:
+                self.puncs = {x: ''
+                              for x in f.read().split('\n')}
 
     def set_param(self, delim=None, min_word_len=None, ngram=None,
                   keep_stopwords=None, keep_puncs=None):
@@ -76,9 +77,9 @@ class SegJb(object):
             self.keep_puncs = keep_puncs
 
     def debug(self):
-        print self.__dict__
-        print len(self.stopwords)
-        print len(self.puncs)
+        print(self.__dict__)
+        print(len(self.stopwords))
+        print(len(self.puncs))
 
     def cut2list(self, corp):
         segs = jieba.cut(corp)
@@ -90,7 +91,7 @@ class SegJb(object):
         ngram_segs = []
         for i, seg in enumerate(segs):
             nseg = seg
-            for j in xrange(i, min(i+self.ngram-1, len(segs)-1)):
+            for j in range(i, min(i+self.ngram-1, len(segs)-1)):
                 # j+1 is the offset
                 nseg += segs[j+1]
                 ngram_segs.append(nseg)
@@ -107,7 +108,7 @@ class SegJb(object):
         ngram_segs = []
         for i, seg in enumerate(segs):
             nseg = seg
-            for j in xrange(i, min(i+self.ngram-1, len(segs)-1)):
+            for j in range(i, min(i+self.ngram-1, len(segs)-1)):
                 # j+1 is the offset
                 nseg += segs[j+1]
                 ngram_segs.append(nseg)
@@ -117,14 +118,14 @@ class SegJb(object):
 
 def test():
     segutil = SegJb()
-    print SegJb.DEFAULT_STPW
-    print SegJb.DEFAULT_PUNC
-    print SegJb.DEFAULT_DICT
+    print(SegJb.DEFAULT_STPW)
+    print(SegJb.DEFAULT_PUNC)
+    print(SegJb.DEFAULT_DICT)
     segutil.init()
     segutil.set_param(delim=' ', keep_stopwords=False, keep_puncs=False)
     # segutil.debug()
-    print segutil.cut2list('测试一下,效果怎么样,万一')
-    print segutil.cut2str('测试一下,效果怎么样,万一')
+    print(segutil.cut2list('测试一下,效果怎么样,万一'))
+    print(segutil.cut2str('测试一下,效果怎么样,万一'))
 
 if __name__ == '__main__':
     test()

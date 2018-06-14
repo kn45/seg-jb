@@ -2,6 +2,7 @@
 # -*- coding=utf8 -*-
 # https://github.com/kn45/SegJb
 
+from __future__ import print_function
 import os
 import sys
 import time
@@ -26,9 +27,9 @@ for line in test_corpus_1:
     corpus = fields[0]
     seg_str = segutil.cut2str(corpus)
     fields[0] = seg_str.encode('utf-8')
-    print '\t'.join(fields)
+    print('\t'.join(fields))
 
 st_time = time.time()
 with open('test_corp') as f:
     segutil.cut2list(f.read())
-print str(time.time() - st_time)
+print(str(time.time() - st_time))
