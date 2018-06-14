@@ -25,7 +25,7 @@ test_corpus_1 = [
 for line in test_corpus_1:
     fields = line.strip('\n').split('\t')
     corpus = fields[0]
-    seg_str = segutil.cut2str(corpus)
+    fields[0] = segutil.cut2str(corpus)
     print('\t'.join(fields))
 
 st_time = time.time()
