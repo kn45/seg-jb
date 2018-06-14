@@ -13,6 +13,7 @@ from __future__ import print_function
 import jieba
 import logging
 import os
+from io import open
 
 
 class SegJb(object):
