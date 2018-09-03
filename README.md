@@ -64,7 +64,7 @@ from segjb import SegJb
 hdl_seg = SegJb()
 hdl_seg.init()
 hdl_seg.set_param(delim=' ', ngram=2, keep_stopwords=True, keep_puncs=False)
-print hdl_seg.cut2str('这是一场精彩的比赛')
+print(hdl_seg.cut2str('这是一场精彩的比赛'))
 ```
 
 ## Reference:
